@@ -1,0 +1,89 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	background: url('../img/bg-1.png') center top repeat fixed;
+}
+
+body {
+	background: rgba(255, 255, 255, 0.8);
+	font-family: 'Source Sans Pro', sans-serif;
+	max-width: 800px;
+	padding: 1em;
+	margin: 0 auto;
+}
+
+.header {
+	text-align: center;
+	padding-bottom: 2em;
+	border-bottom: 1px solid #aaa;
+	margin-bottom: 2em;
+}
+	.header h1 {
+		font-size: 3em;
+		font-weight: 300;
+	}
+	.header p {
+		font-size: 1.25em;
+	}
+
+.pcount {
+	text-align: center;
+	font-size: 1.25em;
+}
+	.pcount label, .pcount input {
+		margin: 0 0.5em;
+	}
+	.pcount input {
+		background: rgba(255, 255, 255, 0.5);
+		border: 0;
+		outline: 0;
+		padding: 0.2em;
+		font-size: 1.5em;
+		width: 2.5em;
+		text-align: center;
+		border-bottom: 3px dotted #333;
+	}
+		.pcount input:hover, .pcount input:focus {
+			background: rgba(255, 255, 255, 0.75);
+		}
+
+#generate {
+	display: inline-block;
+	margin: 1em auto;
+	font-size: 1.25em;
+	background: rgba(255, 255, 255, 0.75);
+	padding: 0.5em 1em;
+	border-radius: 4px;
+}
+	#generate:hover {
+		cursor: pointer;
+		background: rgba(255, 255, 255, 1);
+	}
+
+#results {
+	padding-left: 5em;
+	padding-right: 5em;
+}
+	#results p {
+		line-height: 1.4em;
+		margin-bottom: 1em;
+	}
+
+.ext {
+	text-align: center;
+	padding-top: 1em;
+}
+	.ext p {
+		font-size: 0.8em;
+	}
+	.ext a {
+		color: #666;
+		font-weight: bold;
+		text-decoration: none;
+	}
+		.ext a:hover {
+			text-decoration: underline;
+		}

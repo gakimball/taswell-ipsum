@@ -10,24 +10,29 @@
 	</head>
 
 	<body>
-		<header>
+		<header class="header">
 			<h1>Taswell Ipsum</h1>
-			<p>One front-end engineer's loving tribute to Giant Bomb's Ryan Davis. Pay tribute to @taswell in your prototypes and wireframes.</p>
+			<p>Pay tribute to Ryan Davis in your prototypes and wireframes.</p>
 		</header>
 
-		<div class="input">
-			<label for="paragraphs"># paragraphs</label>
-			<input type="range" id="paragraphs" min="1" max="10">
+		<div class="pcount input">
+			<label for="paragraphs">Give me</label> <input type="text" id="paragraphs"> <label for="paragraphs"> paragraphs</label>
 		</div>
 
-		<div class="input">
+		<!-- <div class="input">
 			<input type="checkbox" id="ptags">
 			<label for="ptags">Include &lt;p&gt; tags</label>
+		</div> -->
+
+		<div style="text-align: center">
+			<a id="generate">Generate</a>
 		</div>
 
-		<a id="generate">Generate</a>
-
 		<div id="results"></div>
+
+		<div class="ext">
+			<p>Submit new quotes: <a href="http://github.com/gakimball/taswell-ipsum">GitHub</a> | <a href="http://twitter.com/geoffkimball">Twitter</a></p>
+		</div>
 		
 		<script src="js/script.js"></script>
 	</body>

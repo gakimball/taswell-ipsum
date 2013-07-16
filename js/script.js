@@ -10,7 +10,6 @@
 	json_request.onreadystatechange = function() {
 		if (json_request.readyState == 4 && json_request.status == 200) {
 			window.quotes_json = JSON.parse(json_request.responseText);
-			generate_ipsum();
 		}
 	}
 	json_request.send();
@@ -23,6 +22,8 @@
 	var input_ptags = document.getElementById('ptags');
 	var generate_button = document.getElementById('generate');
 	var results = document.getElementById('results');
+
+	input_paragraphs.value = '3';
 
 	generate_button.addEventListener('click', function(){
 		generate_ipsum(true)
@@ -45,25 +46,27 @@
 		}
 		shuffle(quotes);
 
+		results.innerHTML = '';
+
 		// Output generation
-		var ph = 5;
+		var ph = input_paragraphs.value;
 		for (var i = 0; i < ph; i++) {
 			// Paragraph generation
 			var string = i == 0 ? 'Hey everybody, it\'s Tuuuuuuuesday! ' : '';
 			var q = i * 10;
 			var max = q + 10;
 			while (q < max) {
+				if (q == quotes.length) break;
 				string += quotes[q] + ' ';
 				q++;
 			}
 
-			string = '<p>' + string + '</p>';
+			// string = '<p>' + string + '</p>';
 
 			var p = document.createElement('p');
 			p.textContent = string;
 			results.appendChild(p);
 		}
-		console.log(results);
 	}
 
 	/*
