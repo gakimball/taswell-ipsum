@@ -1,7 +1,7 @@
 Taswell Ipsum
 =============
 
-One front-end developers loving tribute to Giant Bomb's Ryan Davis. Immortalize @taswell in your designs, prototypes, wireframes, mockups, etc. with this lipsum generator.
+One front-end developer's loving tribute to Giant Bomb's Ryan Davis. Immortalize @taswell in your designs, prototypes, wireframes, mockups, etc. with this lipsum generator.
 
 Submit quotes
 -------------
