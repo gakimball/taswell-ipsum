@@ -56,7 +56,7 @@
 			var q = i * 10;
 			var max = q + 10;
 			while (q < max) {
-				if (q == quotes.length) break;
+				if (q >= quotes.length) break;
 				string += quotes[q] + ' ';
 				q++;
 			}
