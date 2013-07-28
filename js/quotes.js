@@ -1,4 +1,4 @@
-{
+quotes_json = {
 	"vanilla": [
 		"CHINA DON'T CARE.",
 		"Blocked.",
@@ -28,7 +28,11 @@
 		"I don't believe in wheels.",
 		"I am the street!",
 		"I want a game that is nothing but kicking dumpsters at enemies.",
-		"I'm an old man. I like turns."
+		"I'm an old man. I like turns.",
+		"Hey e3 maybe stop farting for 5 seconds.",
+		"I've been a party to many, many stupid things in my life. This is by far the stupidest."
+		"Why not just say KAIJU BATTLE ROBOT JOX?",
+		"Oh, Dennis Leary is in this for no good reason."
 	],
 
 	"explicit": [
@@ -56,6 +60,10 @@
 		"I can play Simon Says like a motherfucker.",
 		"Fuck your box!!",
 		"I just magic'd in my pants.",
-		"They're basically sperm."
+		"They're basically sperm.",
+		"THESE ARE SHEETS FOR FUCKING IN",
+		"You people are abject porn monsters.",
+		"YO THOSE ARE FUCKING DOUBLE-UNDERLINE SICK.",
+		"I WILL CONTINUE TO CALL PAX AUSTRALIA PAXA UNTIL IT FUCKING CATCHES ON."
 	]
 }
