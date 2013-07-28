@@ -43,7 +43,13 @@ quotes_json = {
 		"I've got a salty mustache.",
 		"Seattle is actually Spanish for \"taco.\"",
 		"You are looking for far too much logical consistency.",
-		"Penguins are dope."
+		"Penguins are dope.",
+		"The laziest dubstep is arguably the best dubstep.",
+		"You're just anti-people-believing-in-things.",
+		"Why anything about gelatinous cubes?",
+		"Can we enhance this?",
+		"They called us \"charmingly garrulous\", which I couldn't think of a more New Yorker thing to describe us as.",
+		"There's a lot of face and neck stabbing, if you like to stab dudes in the face and neck."
 	],
 
 	"explicit": [
