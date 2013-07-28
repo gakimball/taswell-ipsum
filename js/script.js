@@ -1,19 +1,4 @@
-(function(){
-
-	/*
-		Quotes request
-	*/
-
-	var json_request = new XMLHttpRequest();
-
-	json_request.open('get', 'js/quotes.json', true);
-	json_request.onreadystatechange = function() {
-		if (json_request.readyState == 4 && json_request.status == 200) {
-			window.quotes_json = JSON.parse(json_request.responseText);
-		}
-	}
-	json_request.send();
-
+(function(quotes_json){
 	/*
 		Form elements
 	*/
@@ -26,7 +11,60 @@
 	input_paragraphs.value = '3';
 
 	generate_button.addEventListener('click', function(){
-		generate_ipsum(true)
+		generate_ipsum(true);
+	});
+
+	ZeroClipboard.setDefaults({
+		moviePath: 'js/zero-clipboard/ZeroClipboard.swf',
+		allowScriptAccess: 'always',
+		hoverClass: 'button-hover'
+	});
+
+	/**
+	 * Setup our clipboard on DOM ready 
+	 */
+	document.addEventListener('DOMContentLoaded', function () {
+		var clipboardButton = document.getElementById('clipboard'),
+			clipboard,
+			previousTimeout;
+
+		clipboard = new ZeroClipboard(clipboardButton, {
+			hoverClass: 'button-hover'
+		});
+
+		clipboardButton.textContent = clipboardButton.dataset.normal;
+
+		clipboard.on('mousedown', function () {
+
+				if (results.childNodes.length === 0) {
+					//no quotes? make them!
+					generate_ipsum(true);
+				}
+
+				//set the text on the clipboard 
+				clipboard.setText(results.innerHTML);
+
+				clipboardButton.textContent = clipboardButton.dataset.onCopied;
+
+				if (clipboardButton.className.indexOf(clipboardButton.dataset.onCopiedClass) === -1) {
+					//only add the hover class if it doesn't exist already
+					clipboardButton.className += ' ' + clipboardButton.dataset.onCopiedClass;
+				}
+
+				if (previousTimeout) {
+					//if there's another timeout, try clearing it
+					clearTimeout(previousTimeout);
+				}
+
+				previousTimeout = setTimeout(
+					function () {
+						//make the button look normal again
+						clipboardButton.textContent = clipboardButton.dataset.normal;
+						clipboardButton.className = clipboardButton.className.replace(clipboardButton.dataset.onCopiedClass, '');
+					},
+					5000
+				);
+			});
 	});
 
 	/*
@@ -34,39 +72,52 @@
 	*/
 
 	var generate_ipsum = function(explicit) {
+		var newElements = document.createDocumentFragment(),
+			quotes;
+
 		// Default to cursin'
 		// It's what Ryan would have wanted
 		if (typeof explicit !== 'boolean') explicit = true;
 
 		if (explicit === true) {
-			var quotes = window.quotes_json.vanilla.concat(window.quotes_json.explicit);
+			quotes = quotes_json.vanilla.concat(quotes_json.explicit);
 		}
 		else {
-			var quotes = window.quotes_json.vanilla;
+			quotes = quotes_json.vanilla;
 		}
+
 		shuffle(quotes);
 
 		results.innerHTML = '';
 
 		// Output generation
 		var ph = input_paragraphs.value;
+
+		var numQuotes = quotes.length;
+
 		for (var i = 0; i < ph; i++) {
 			// Paragraph generation
 			var string = i == 0 ? 'Hey everybody, it\'s Tuuuuuuuesday! ' : '';
-			var q = i * 10;
-			var max = q + 10;
-			while (q < max) {
-				if (q >= quotes.length) break;
+			var max = random(5, 10);
+			var q = random(0, numQuotes - 1);
+
+			for (var z = 0; z < max; z += 1, q += 1) {
+				if (!quotes[q]) {
+					//no quotes at that index?
+					//set our counter to a point where
+					//we'll get more quotes
+					q = random(0, numQuotes - 1);
+				}
+
 				string += quotes[q] + ' ';
-				q++;
 			}
 
-			// string = '<p>' + string + '</p>';
-
 			var p = document.createElement('p');
-			p.textContent = string;
-			results.appendChild(p);
+			p.innerHTML = string;
+			newElements.appendChild(p);
 		}
+
+		results.appendChild(newElements);
 	}
 
 	/*
@@ -96,4 +147,13 @@
 	  return array;
 	}
 
-}())
+	/**
+	 * Gets a random int in a range
+	 * @param  {Number} min 
+	 * @param  {Number} max 
+	 * @return {Number}
+	 */
+	function random(min, max) {
+		return ~~(Math.random() * (max - min + 1) + min);
+	}
+}(window.quotes_json))
