@@ -32,7 +32,18 @@ quotes_json = {
 		"Hey e3 maybe stop farting for 5 seconds.",
 		"I've been a party to many, many stupid things in my life. This is by far the stupidest.",
 		"Why not just say KAIJU BATTLE ROBOT JOX?",
-		"Oh, Dennis Leary is in this for no good reason."
+		"Oh, Dennis Leary is in this for no good reason.",
+		"Let's play some meat!",
+		"This is skin-peelingly bad.",
+		"I'm gonna no scope these crops.",
+		"Don't buy a racing wheel!",
+		"You are history's greatest monster.",
+		"Because the Dutch are cheap.",
+		"You locked eyes with Elmo, that's a mistake.",
+		"I've got a salty mustache.",
+		"Seattle is actually Spanish for \"taco.\"",
+		"You are looking for far too much logical consistency.",
+		"Penguins are dope."
 	],
 
 	"explicit": [
@@ -61,9 +72,14 @@ quotes_json = {
 		"Fuck your box!!",
 		"I just magic'd in my pants.",
 		"They're basically sperm.",
-		"THESE ARE SHEETS FOR FUCKING IN",
+		"THESE ARE SHEETS FOR FUCKING IN.",
 		"You people are abject porn monsters.",
 		"YO THOSE ARE FUCKING DOUBLE-UNDERLINE SICK.",
-		"I WILL CONTINUE TO CALL PAX AUSTRALIA PAXA UNTIL IT FUCKING CATCHES ON."
+		"I WILL CONTINUE TO CALL PAX AUSTRALIA PAXA UNTIL IT FUCKING CATCHES ON.",
+		"This is like a fuckin' Woody Allen heist going on here.",
+		"Take that you shitty wizard.",
+		"It makes me angry how fucking much I enjoy this game.",
+		"No, there’s nothing I'd rather talk about right now than Peter Molyneux's balls.",
+		"Don't milk a hippie."
 	]
 }
