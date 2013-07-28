@@ -50,7 +50,7 @@ body {
 			background: rgba(255, 255, 255, 0.75);
 		}
 
-#generate {
+.button {
 	display: inline-block;
 	margin: 1em auto;
 	font-size: 1.25em;
@@ -58,9 +58,13 @@ body {
 	padding: 0.5em 1em;
 	border-radius: 4px;
 }
-	#generate:hover {
+	.button:hover, .button-hover {
 		cursor: pointer;
 		background: rgba(255, 255, 255, 1);
+	}
+
+	.button-green {
+		color: #5cb85c;
 	}
 
 #results {
