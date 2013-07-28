@@ -26,15 +26,16 @@
 	document.addEventListener('DOMContentLoaded', function () {
 		var clipboardButton = document.getElementById('clipboard'),
 			clipboard,
-			previousTimeout,
-			copiedClass = 'button-green';
+			previousTimeout;
 
 		clipboard = new ZeroClipboard(clipboardButton, {
 			hoverClass: 'button-hover'
 		});
 
+		clipboardButton.textContent = clipboardButton.dataset.normal;
+
 		clipboard.on('mousedown', function () {
-				var currentText;
+
 				if (results.childNodes.length === 0) {
 					//no quotes? make them!
 					generate_ipsum(true);
@@ -42,27 +43,24 @@
 
 				//set the text on the clipboard 
 				clipboard.setText(results.innerHTML);
-				
-				//save the current button text so we can set it back
-				currentText = clipboardButton.textContent;
 
-				clipboardButton.textContent = 'Copied!';
+				clipboardButton.textContent = clipboardButton.dataset.onCopied;
 
-				if (clipboardButton.className.indexOf(copiedClass) === -1) {
+				if (clipboardButton.className.indexOf(clipboardButton.dataset.onCopiedClass) === -1) {
 					//only add the hover class if it doesn't exist already
-					clipboardButton.className += ' ' + copiedClass;
+					clipboardButton.className += ' ' + clipboardButton.dataset.onCopiedClass;
 				}
 
 				if (previousTimeout) {
-					//if there's a timeout waiting, clear it
+					//if there's another timeout, try clearing it
 					clearTimeout(previousTimeout);
 				}
 
 				previousTimeout = setTimeout(
 					function () {
 						//make the button look normal again
-						clipboardButton.textContent = currentText;
-						clipboardButton.className = clipboardButton.className.replace(copiedClass, '');
+						clipboardButton.textContent = clipboardButton.dataset.normal;
+						clipboardButton.className = clipboardButton.className.replace(clipboardButton.dataset.onCopiedClass, '');
 					},
 					5000
 				);
