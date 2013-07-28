@@ -30,7 +30,7 @@ quotes_json = {
 		"I want a game that is nothing but kicking dumpsters at enemies.",
 		"I'm an old man. I like turns.",
 		"Hey e3 maybe stop farting for 5 seconds.",
-		"I've been a party to many, many stupid things in my life. This is by far the stupidest."
+		"I've been a party to many, many stupid things in my life. This is by far the stupidest.",
 		"Why not just say KAIJU BATTLE ROBOT JOX?",
 		"Oh, Dennis Leary is in this for no good reason."
 	],
