@@ -91,6 +91,7 @@ a {
     font-style: italic;
   }
   .settings input[type="text"] {
+    font-family: 'Source Sans Pro', sans-serif;
     background: #fff;
     border: 0;
     outline: 0;

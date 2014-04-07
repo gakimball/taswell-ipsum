@@ -4,7 +4,6 @@
   */
 
   var input_paragraphs = document.getElementById('paragraphs');
-  var input_ptags = document.getElementById('ptags');
   var generate_button = document.getElementById('generate');
   var results = document.getElementById('results');
 
