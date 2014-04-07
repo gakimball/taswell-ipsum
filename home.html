@@ -6,37 +6,33 @@
     <meta name="author" content="Geoff Kimball">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-
-    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
     <header class="header">
-      <h1>Taswell Ipsum</h1>
-      <p>Pay tribute to Ryan Davis in your prototypes and wireframes.</p>
+      <h1>Taswell Ipsum.com</h1>
     </header>
 
-    <div class="pcount input">
-      <label for="paragraphs">Give me</label> <input type="text" id="paragraphs"> <label for="paragraphs"> paragraphs</label>
-    </div>
+    <section class="main" role="main">
+      <section class="tagline">
+        <p>Pay tribute to Ryan Davis in your wireframes and prototypes.</p>
+      </section>
 
-    <!-- <div class="input">
-      <input type="checkbox" id="ptags">
-      <label for="ptags">Include &lt;p&gt; tags</label>
-    </div> -->
+      <div class="settings">
+        <label>Give me <input type="text" id="paragraphs"> paragraphs</label>
+        <a id="generate" class="button">Generate</a>
+        <a id="clipboard" class="button" data-on-copied-class="button-green" data-on-copied="Copied!" data-normal="Copy to Clipboard"></a>
+        <a id="faux-button" style="display:none;"></a>
+      </div>
 
-    <div style="text-align: center">
-      <a id="generate" class="button">Generate</a>
-      <a id="clipboard" class="button" data-on-copied-class="button-green" data-on-copied="Copied!" data-normal="Copy to Clipboard"></a>
-      <a id="faux-button" style="display:none;"></a>
-    </div>
+      <div id="results"></div>
+    </section>
 
-    <div id="results"></div>
-
-    <div class="ext">
+    <footer class="footer">
       <p>Submit new quotes: <a href="http://github.com/gakimball/taswell-ipsum">GitHub</a> | <a href="http://twitter.com/geoffkimball">Twitter</a></p>
-    </div>
+    </footer>
 
     <script src="js/zero-clipboard/ZeroClipboard.min.js"></script>
     <script src="js/quotes.js"></script>
