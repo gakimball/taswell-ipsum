@@ -8,8 +8,6 @@
   var generate_button = document.getElementById('generate');
   var results = document.getElementById('results');
 
-  input_paragraphs.value = '3';
-
   generate_button.addEventListener('click', function(){
     generate_ipsum(true);
   });
@@ -73,7 +71,9 @@
 
   var generate_ipsum = function(explicit) {
     var newElements = document.createDocumentFragment(),
-      quotes;
+        quotes = [],
+        numParagraphs = input_paragraphs.value,
+        numQuotes = quotes.length;
 
     // Default to cursin'
     // It's what Ryan would have wanted
@@ -87,26 +87,19 @@
     }
 
     shuffle(quotes);
-
     results.innerHTML = '';
 
-    // Output generation
-    var ph = input_paragraphs.value;
-
-    var numQuotes = quotes.length;
-
-    for (var i = 0; i < ph; i++) {
-      // Paragraph generation
+    // Iterator for number of paragraphs
+    for (var i = 0, q = 0; i < numParagraphs; i++) {
       var string = i == 0 ? 'Hey everybody, it\'s Tuuuuuuuesday! ' : '';
-      var max = random(5, 10);
-      var q = random(0, numQuotes - 1);
+      var max = 10;
 
-      for (var z = 0; z < max; z += 1, q += 1) {
+      // Iterator for number of sentences in a paragraph
+      for (var j = 0; j < max; j++, q++) {
         if (!quotes[q]) {
-          //no quotes at that index?
-          //set our counter to a point where
-          //we'll get more quotes
-          q = random(0, numQuotes - 1);
+          // When we run out of quotes, shuffle the array again and start over
+          shuffle(quotes);
+          q = 0;
         }
 
         string += quotes[q] + ' ';
