@@ -60,6 +60,7 @@ a {
     text-transform: uppercase;
     font-weight: bold;
     word-spacing: 0;
+    cursor: default;
   }
   @media screen and (max-width: 37.5em) {
     .header h1 {
