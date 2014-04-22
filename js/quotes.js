@@ -49,7 +49,23 @@ quotes_json = {
     "Why anything about gelatinous cubes?",
     "Can we enhance this?",
     "They called us \"charmingly garrulous\", which I couldn't think of a more New Yorker thing to describe us as.",
-    "There's a lot of face and neck stabbing, if you like to stab dudes in the face and neck."
+    "There's a lot of face and neck stabbing, if you like to stab dudes in the face and neck.",
+    "You can't feed your friend's leg to a robot.",
+    "Socks are like feet pants.",
+    "Goku's like the Huell Howser of anime.",
+    "It's dumb, but its not transcendentally dumb.",
+    "Gimme that horsey sauce.",
+    "That dude now knows the contours of my body better than I do.",
+    "Gardener! What a perfect masseur name!",
+    "The day spa is the ultimate high-stakes \"is this a public space it's OK to be naked in?\" scenario.",
+    "Timmy, you're not a converted Primal Rage arcade cabinet, Timmy! You're a stupid dog!",
+    "It's the Giant Barmcast!",
+    "How weird is the existence of the Christmas tree farmer?",
+    "Sheep are incredibly muscular.",
+    "Well, you're trying to get her pregnant, right?",
+    "Caused all this collateral damage with my F-bombs.",
+    "I was dressed up like a pizza delivery guy; brought this F-bomb instead.",
+    "This podcast is over."
   ],
 
   "explicit": [
@@ -86,6 +102,8 @@ quotes_json = {
     "Take that you shitty wizard.",
     "It makes me angry how fucking much I enjoy this game.",
     "No, there’s nothing I'd rather talk about right now than Peter Molyneux's balls.",
-    "Don't milk a hippie."
+    "Don't milk a hippie.",
+    "Fuckin' helicopters are the worst! They're trying to kill you as you get in them.",
+    "I want to straddle that horsey sauce. I would ride it straight to Hell!"
   ]
 }
