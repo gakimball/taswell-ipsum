@@ -4,11 +4,13 @@
   */
 
   var input_paragraphs = document.getElementById('paragraphs');
-  var generate_button = document.getElementById('generate');
+  var input_explicit   = document.getElementById('explicit');
+  var generate_button  = document.getElementById('generate');
   var results = document.getElementById('results');
 
   generate_button.addEventListener('click', function(){
-    generate_ipsum(true);
+    var explicit = input_explicit.checked;
+    generate_ipsum(explicit);
   });
 
   ZeroClipboard.setDefaults({
