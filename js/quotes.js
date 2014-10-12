@@ -106,7 +106,9 @@ quotes_json = {
     "Let's put our frowns on upside down, and eat my buddy's leg.",
     "I hate watching you drink warm soda. It's bad for you and it's bad for the soda.",
     "No one gets that reference. I barely get that reference.",
-    "Once you hit 30 you can't do shots."
+    "Once you hit 30 you can't do shots.",
+    "We're trying to make the brown tone over here.",
+    "This is a terrible conversation."
   ],
 
   "explicit": [
@@ -172,6 +174,9 @@ quotes_json = {
     "Oh, you asshole.",
     "Go to hell.",
     "This is boring as shit.",
-    "Oh yeah, Game Room! What shit is happening this week?"
+    "Oh yeah, Game Room! What shit is happening this week?",
+    "Oh, don't front, Jeff. You were already pooping your pants before we even started recording.",
+    "Fine day to shit yourself, while recording a podcast.",
+    "It's easy to piss off Batman. Doesn't take much."
   ]
 }
