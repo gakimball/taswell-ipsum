@@ -108,7 +108,16 @@ quotes_json = {
     "No one gets that reference. I barely get that reference.",
     "Once you hit 30 you can't do shots.",
     "We're trying to make the brown tone over here.",
-    "This is a terrible conversation."
+    "This is a terrible conversation.",
+    "You are Bathroom Guy.",
+    "You're just jealous of other peoples' hot news.",
+    "Video games are bad; discuss.",
+    "Prove that video games are good.",
+    "I played Ms. Pac-Man. It's pretty good. I decided this weekend that it's about communism.",
+    "I have a problematic toilet.",
+    "Alright, now I'm not gonna wash my hands, and I'm gonna take these cookies.",
+    "Good Old Raisins and Peanuts! GORP! You guys never heard of GORP?",
+    "I'm gonna give myself an award for Best Statement of the Year for that."
   ],
 
   "explicit": [
@@ -177,6 +186,17 @@ quotes_json = {
     "Oh yeah, Game Room! What shit is happening this week?",
     "Oh, don't front, Jeff. You were already pooping your pants before we even started recording.",
     "Fine day to shit yourself, while recording a podcast.",
-    "It's easy to piss off Batman. Doesn't take much."
+    "It's easy to piss off Batman. Doesn't take much.",
+    "You fucking people. You listening, if you're the person who's like, 'Oh, Sonic the Hedgehog in 2D, finally,' fuck you, alright? You're part of the problem.",
+    "We were talking about furries and yiffing and GenCon.",
+    "I am not smart enough to know what any of that shit means.",
+    "Sometimes there are cuts where you don't expect them to be. I'm talking about your butthole.",
+    "I don't think getting buffalo sauce on your ass would feel particularly good regardless.",
+    "Can we agree that buffalo sauce on your asshole would not feel good?",
+    "If I didn't have to sit here and keep monitoring this podcast, I would leave too, at hearing such an audaciously bullshit statement.",
+    "Can I ask you why you're saying 'booty'?",
+    "I already live in a world without Batman and it fucking suuuucks.",
+    "You know what's not the new sweat? Hitler.",
+    "You know what makes a game better? Hitler."
   ]
 }
