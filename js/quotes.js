@@ -199,6 +199,15 @@ quotes_json = {
     "I already live in a world without Batman and it fucking suuuucks.",
     "You know what's not the new sweat? Hitler.",
     "You know what makes a game better? Hitler.",
-    "Those penguins are shitting Pong balls. Or, snow balls. Or I guess shit balls, is what they are."
+    "Those penguins are shitting Pong balls. Or, snow balls. Or I guess shit balls, is what they are.",
+    "Get your thumb out of your ass and try playing games for once, why don't ya.",
+    "It's like they'd never seen a video game before and they just decided, \"Oh, this is the best one, cause I've seen one.\"",
+    "Those are definitely the right type of bath salts.",
+    "We're having fun, smoking bath salts and playing SimCity.",
+    "You won't know you're playing SimCity once you smoke all them bath salts, Jeff.",
+    "You would not have the time to retaliate while you're watching this man shit in his own hand, preparing to fling it at you.",
+    "Fight-or-flight kicks in immediately when you see a man shitting in his own hand.",
+    "You see a guy shitting in a hallway, you either have to leave, or you have to just dead sprint to tackle him, to stop this shitting process.",
+    "Apparently the lesson here is, don't fuck with the Spaniards when it comes to poop warfare... or Pokémon."
   ]
 }
