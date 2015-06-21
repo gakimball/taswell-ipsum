@@ -197,6 +197,7 @@ quotes_json = {
     "Can I ask you why you're saying 'booty'?",
     "I already live in a world without Batman and it fucking suuuucks.",
     "You know what's not the new sweat? Hitler.",
-    "You know what makes a game better? Hitler."
+    "You know what makes a game better? Hitler.",
+    "Those penguins are shitting Pong balls. Or, snow balls. Or I guess shit balls, is what they are."
   ]
 }
