@@ -117,7 +117,8 @@ quotes_json = {
     "I have a problematic toilet.",
     "Alright, now I'm not gonna wash my hands, and I'm gonna take these cookies.",
     "Good Old Raisins and Peanuts! GORP! You guys never heard of GORP?",
-    "I'm gonna give myself an award for Best Statement of the Year for that."
+    "I'm gonna give myself an award for Best Statement of the Year for that.",
+    "That definitely looks like a cow that can handle a high ball."
   ],
 
   "explicit": [
