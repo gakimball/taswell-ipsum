@@ -10,6 +10,8 @@ cd taswell-ipsum
 npx serve
 ```
 
+Run `npm test` to lint the code.
+
 ## Submit quotes
 
 I've got most of the quotes from Ryan's wiki page, but I want more. If you've got some good stuff, submit a pull request, or just talk to me on Twitter ([@geoffkimball](https://twitter.com/geoffkimball)) or Giant Bomb ([gakon](https://giantbomb.com/profile/gakon)).

@@ -1,153 +1,116 @@
-(function(quotes_json){
-  /*
-    Form elements
-  */
+/* global ZeroClipboard */
 
-  var input_paragraphs = document.getElementById('paragraphs');
-  var input_explicit   = document.getElementById('explicit');
-  var generate_button  = document.getElementById('generate');
-  var results = document.getElementById('results');
+(function () {
+	const inputParagraphs = document.getElementById('paragraphs');
+	const inputExplicit = document.getElementById('explicit');
+	const generateButton = document.getElementById('generate');
+	const results = document.getElementById('results');
 
-  generate_button.addEventListener('click', function(){
-    var explicit = input_explicit.checked;
-    generate_ipsum(explicit);
-  });
+	generateButton.addEventListener('click', () => {
+		const explicit = inputExplicit.checked;
+		generateIpsum(explicit);
+	});
 
-  ZeroClipboard.setDefaults({
-    moviePath: 'js/zero-clipboard/ZeroClipboard.swf',
-    allowScriptAccess: 'always',
-    hoverClass: 'button-hover'
-  });
+	ZeroClipboard.setDefaults({
+		moviePath: 'js/zero-clipboard/ZeroClipboard.swf',
+		allowScriptAccess: 'always',
+		hoverClass: 'button-hover'
+	});
 
-  /**
-   * Setup our clipboard on DOM ready 
-   */
-  document.addEventListener('DOMContentLoaded', function () {
-    var clipboardButton = document.getElementById('clipboard'),
-      clipboard,
-      previousTimeout;
+	// Setup our clipboard on DOM ready
+	document.addEventListener('DOMContentLoaded', () => {
+		const clipboardButton = document.getElementById('clipboard');
+		const clipboard = new ZeroClipboard(clipboardButton, {
+			hoverClass: 'button-hover'
+		});
+		let previousTimeout;
 
-    clipboard = new ZeroClipboard(clipboardButton, {
-      hoverClass: 'button-hover'
-    });
+		clipboardButton.textContent = clipboardButton.dataset.normal;
 
-    clipboardButton.textContent = clipboardButton.dataset.normal;
+		clipboard.on('mousedown', () => {
+			if (results.childNodes.length === 0) {
+				// No quotes? make them!
+				generateIpsum();
+			}
 
-    clipboard.on('mousedown', function () {
+			// Set the text on the clipboard
+			clipboard.setText(results.innerHTML);
 
-        if (results.childNodes.length === 0) {
-          //no quotes? make them!
-          generate_ipsum(true);
-        }
+			clipboardButton.textContent = clipboardButton.dataset.onCopied;
 
-        //set the text on the clipboard 
-        clipboard.setText(results.innerHTML);
+			if (clipboardButton.className.indexOf(clipboardButton.dataset.onCopiedClass) === -1) {
+				// Only add the hover class if it doesn't exist already
+				clipboardButton.className += ' ' + clipboardButton.dataset.onCopiedClass;
+			}
 
-        clipboardButton.textContent = clipboardButton.dataset.onCopied;
+			if (previousTimeout) {
+				// If there's another timeout, try clearing it
+				clearTimeout(previousTimeout);
+			}
 
-        if (clipboardButton.className.indexOf(clipboardButton.dataset.onCopiedClass) === -1) {
-          //only add the hover class if it doesn't exist already
-          clipboardButton.className += ' ' + clipboardButton.dataset.onCopiedClass;
-        }
+			previousTimeout = setTimeout(
+				() => {
+					// Make the button look normal again
+					clipboardButton.textContent = clipboardButton.dataset.normal;
+					clipboardButton.className = clipboardButton.className.replace(clipboardButton.dataset.onCopiedClass, '');
+				},
+				5000
+			);
+		});
+	});
 
-        if (previousTimeout) {
-          //if there's another timeout, try clearing it
-          clearTimeout(previousTimeout);
-        }
+	function generateIpsum(explicit = true) {
+		const quoteList = window.__TASWELL_QUOTES__;
+		const newElements = document.createDocumentFragment();
+		const quotes = quoteList.vanilla.concat(explicit ? quoteList.explicit : []);
+		const numParagraphs = inputParagraphs.value;
+		const numSentences = 10;
 
-        previousTimeout = setTimeout(
-          function () {
-            //make the button look normal again
-            clipboardButton.textContent = clipboardButton.dataset.normal;
-            clipboardButton.className = clipboardButton.className.replace(clipboardButton.dataset.onCopiedClass, '');
-          },
-          5000
-        );
-      });
-  });
+		shuffle(quotes);
+		results.innerHTML = '';
 
-  /*
-    Generator
-  */
+		// Iterator for number of paragraphs
+		for (let i = 0, q = 0; i < numParagraphs; i++) {
+			let string = i === 0 ? 'Hey everybody, it\'s Tuuuuuuuesday! ' : '';
 
-  var generate_ipsum = function(explicit) {
-    var newElements = document.createDocumentFragment(),
-        quotes = [],
-        numParagraphs = input_paragraphs.value,
-        numQuotes = quotes.length;
+			// Iterator for number of sentences in a paragraph
+			for (let j = 0; j < numSentences; j++, q++) {
+				if (!quotes[q]) {
+					// When we run out of quotes, shuffle the array again and start over
+					shuffle(quotes);
+					q = 0;
+				}
 
-    // Default to cursin'
-    // It's what Ryan would have wanted
-    if (typeof explicit !== 'boolean') explicit = true;
+				string += quotes[q] + ' ';
+			}
 
-    if (explicit === true) {
-      quotes = quotes_json.vanilla.concat(quotes_json.explicit);
-    }
-    else {
-      quotes = quotes_json.vanilla;
-    }
+			const p = document.createElement('p');
+			p.innerHTML = string;
+			newElements.appendChild(p);
+		}
 
-    shuffle(quotes);
-    results.innerHTML = '';
+		results.appendChild(newElements);
+	}
 
-    // Iterator for number of paragraphs
-    for (var i = 0, q = 0; i < numParagraphs; i++) {
-      var string = i == 0 ? 'Hey everybody, it\'s Tuuuuuuuesday! ' : '';
-      var max = 10;
+	// Array shuffler
+	// Thank you: http://stackoverflow.com/questions/2450954/how-to-randomize-a-javascript-array
+	function shuffle(array) {
+		let currentIndex = array.length;
+		let temporaryValue;
+		let randomIndex;
 
-      // Iterator for number of sentences in a paragraph
-      for (var j = 0; j < max; j++, q++) {
-        if (!quotes[q]) {
-          // When we run out of quotes, shuffle the array again and start over
-          shuffle(quotes);
-          q = 0;
-        }
+		// While there remain elements to shuffle...
+		while (currentIndex !== 0) {
+			// Pick a remaining element...
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;
 
-        string += quotes[q] + ' ';
-      }
+			// And swap it with the current element.
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}
 
-      var p = document.createElement('p');
-      p.innerHTML = string;
-      newElements.appendChild(p);
-    }
-
-    results.appendChild(newElements);
-  }
-
-  /*
-    Array shuffler
-    Thank you: http://stackoverflow.com/questions/2450954/how-to-randomize-a-javascript-array
-  */
-
-  function shuffle(array) {
-    var currentIndex = array.length
-    , temporaryValue
-    , randomIndex
-    ;
-
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-  }
-
-  /**
-   * Gets a random int in a range
-   * @param  {Number} min 
-   * @param  {Number} max 
-   * @return {Number}
-   */
-  function random(min, max) {
-    return ~~(Math.random() * (max - min + 1) + min);
-  }
-}(window.quotes_json))
+		return array;
+	}
+})();

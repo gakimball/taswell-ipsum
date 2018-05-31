@@ -1,0 +1,25 @@
+{
+  "name": "taswell-ipsum",
+  "version": "1.0.0",
+  "description": "One front-end developer's loving tribute to Giant Bomb's Ryan Davis",
+  "main": "index.html",
+  "scripts": {
+    "test": "xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gakimball/taswell-ipsum.git"
+  },
+  "author": "Geoff Kimball <geoff@geoffkimball.com> (http://geoffkimball.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gakimball/taswell-ipsum/issues"
+  },
+  "homepage": "https://github.com/gakimball/taswell-ipsum#readme",
+  "devDependencies": {
+    "xo": "^0.21.1"
+  },
+  "xo": {
+    "env": ["browser"]
+  }
+}
