@@ -1,9 +1,8 @@
-/* global ZeroClipboard */
-
 (function () {
 	const inputParagraphs = document.getElementById('paragraphs');
 	const inputExplicit = document.getElementById('explicit');
 	const generateButton = document.getElementById('generate');
+	const clipboardButton = document.getElementById('clipboard');
 	const results = document.getElementById('results');
 
 	generateButton.addEventListener('click', () => {
@@ -11,54 +10,43 @@
 		generateIpsum(explicit);
 	});
 
-	ZeroClipboard.setDefaults({
-		moviePath: 'js/zero-clipboard/ZeroClipboard.swf',
-		allowScriptAccess: 'always',
-		hoverClass: 'button-hover'
-	});
-
 	// Setup our clipboard on DOM ready
 	document.addEventListener('DOMContentLoaded', () => {
-		const clipboardButton = document.getElementById('clipboard');
-		const clipboard = new ZeroClipboard(clipboardButton, {
-			hoverClass: 'button-hover'
-		});
-		let previousTimeout;
+		const defaultButtonText = clipboardButton.textContent;
+		let buttonTextTimeout = null;
 
-		clipboardButton.textContent = clipboardButton.dataset.normal;
+		clipboardButton.addEventListener('click', event => {
+			event.preventDefault();
 
-		clipboard.on('mousedown', () => {
 			if (results.childNodes.length === 0) {
 				// No quotes? make them!
 				generateIpsum();
 			}
 
-			// Set the text on the clipboard
-			clipboard.setText(results.innerHTML);
+			const quoteText = [...results.childNodes].map(p => p.textContent).join('\n');
 
-			clipboardButton.textContent = clipboardButton.dataset.onCopied;
+			copyToClipboard(quoteText);
 
-			if (clipboardButton.className.indexOf(clipboardButton.dataset.onCopiedClass) === -1) {
-				// Only add the hover class if it doesn't exist already
-				clipboardButton.className += ' ' + clipboardButton.dataset.onCopiedClass;
+			clipboardButton.classList.add('button-green');
+			clipboardButton.textContent = 'Copied!';
+
+			if (buttonTextTimeout) {
+				// If there's another timeout, clear it
+				clearTimeout(buttonTextTimeout);
+				buttonTextTimeout = null;
 			}
 
-			if (previousTimeout) {
-				// If there's another timeout, try clearing it
-				clearTimeout(previousTimeout);
-			}
-
-			previousTimeout = setTimeout(
+			buttonTextTimeout = setTimeout(
 				() => {
-					// Make the button look normal again
-					clipboardButton.textContent = clipboardButton.dataset.normal;
-					clipboardButton.className = clipboardButton.className.replace(clipboardButton.dataset.onCopiedClass, '');
+					clipboardButton.classList.remove('button-green');
+					clipboardButton.textContent = defaultButtonText;
 				},
 				5000
 			);
 		});
 	});
 
+	// Generate random paragraphs and append them to the page
 	function generateIpsum(explicit = true) {
 		const quoteList = window.__TASWELL_QUOTES__;
 		const newElements = document.createDocumentFragment();
@@ -112,5 +100,48 @@
 		}
 
 		return array;
+	}
+
+	// Copy to clipboard
+	// Thank you: https://github.com/sindresorhus/copy-text-to-clipboard/blob/b96e86e94989c560979c782eca9c6e43fe1c4a86/index.js
+	function copyToClipboard(input = '') {
+		const el = document.createElement('textarea');
+
+		el.value = input;
+
+		// Prevent keyboard from showing on mobile
+		el.setAttribute('readonly', '');
+
+		el.style.contain = 'strict';
+		el.style.position = 'absolute';
+		el.style.left = '-9999px';
+		el.style.fontSize = '12pt'; // Prevent zooming on iOS
+
+		const selection = document.getSelection();
+		let originalRange = false;
+		if (selection.rangeCount > 0) {
+			originalRange = selection.getRangeAt(0);
+		}
+
+		document.body.appendChild(el);
+		el.select();
+
+		// Explicit selection workaround for iOS
+		el.selectionStart = 0;
+		el.selectionEnd = input.length;
+
+		let success = false;
+		try {
+			success = document.execCommand('copy');
+		} catch (err) {}
+
+		document.body.removeChild(el);
+
+		if (originalRange) {
+			selection.removeAllRanges();
+			selection.addRange(originalRange);
+		}
+
+		return success;
 	}
 })();
