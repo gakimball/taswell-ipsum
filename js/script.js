@@ -13,6 +13,7 @@
 	// Setup our clipboard on DOM ready
 	document.addEventListener('DOMContentLoaded', () => {
 		const defaultButtonText = clipboardButton.textContent;
+		const buttonHighlightClass = 'button--highlight';
 		let buttonTextTimeout = null;
 
 		clipboardButton.addEventListener('click', event => {
@@ -27,7 +28,7 @@
 
 			copyToClipboard(quoteText);
 
-			clipboardButton.classList.add('button-green');
+			clipboardButton.classList.add(buttonHighlightClass);
 			clipboardButton.textContent = 'Copied!';
 
 			if (buttonTextTimeout) {
@@ -38,7 +39,7 @@
 
 			buttonTextTimeout = setTimeout(
 				() => {
-					clipboardButton.classList.remove('button-green');
+					clipboardButton.classList.remove(buttonHighlightClass);
 					clipboardButton.textContent = defaultButtonText;
 				},
 				5000
